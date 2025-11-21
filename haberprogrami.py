@@ -17,11 +17,11 @@ import json
 class Config:
     # E-posta Ayarları
     SENDER_EMAIL = "enginyapayzeka@gmail.com"  # Gönderen mail
-    SENDER_PASSWORD = "shwy ngkp eoec jpeg"  # Gmail App Password
+    SENDER_PASSWORD = os.getenv("GOOGLE_APP_PASSWORD")
     RECIPIENT_EMAIL = "enginonus@gmail.com"  # Alıcı mail (sizin mailiniz)
     
     # API Anahtarları
-    NEWS_API_KEY = "70726bb72a6d414db2daeefeb3de1644"  # https://newsapi.org
+    NEWS_API_KEY = os.getenv("NEWS_API_KEY")
     ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
     
     # Haber Kategorileri ve Anahtar Kelimeler
@@ -251,5 +251,11 @@ class DailyNewsSystem:
 # ====== PROGRAMI BAŞLAT ======
 if __name__ == "__main__":
     system = DailyNewsSystem()
-    # system.run_daily_task()  # Test tamamlandı, kapat
-    system.start_scheduler()  # Günlük çalışsın
+    
+    # GitHub Actions için tek seferlik mod
+    run_mode = os.getenv("RUN_MODE", "SCHEDULER")
+    
+    if run_mode == "ONCE":
+        system.run_daily_task()
+    else:
+        system.start_scheduler()
