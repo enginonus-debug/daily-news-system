@@ -4,6 +4,7 @@ on:
   schedule:
     # GitHub UTC ile çalışır → Türkiye UTC+3
     - cron: "30 5 * * *"   # 08:30 Türkiye
+    - cron: "30 17 * * *"  # 20:30 Türkiye
   workflow_dispatch: {}    # Elle tetiklemek istersen
 
 jobs:
