@@ -2,9 +2,9 @@ name: Daily News Mailer
 
 on:
   schedule:
-    # GitHub UTC ile çalışır → Türkiye UTC+3
-    - cron: 30 5 * * *   # 08:30 Türkiye
-  workflow_dispatch: {}    # Elle tetiklemek istersen
+    - cron: 30 5 * * *
+    - cron: 30 17 * * *
+  workflow_dispatch: {}
 
 jobs:
   run-daily-news:
