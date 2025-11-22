@@ -174,7 +174,7 @@ class EmailSender:
         
         html += """
             <div class="footer">
-                <p>Bu bülten otomatik olarak oluşturulmuştur.</p>
+                <p>Bu bülten Onus Industry LLC tarafından oluşturulmuştur.</p>
                 <p>© 2025 Günlük Haber Sistemi</p>
             </div>
         </body>
